@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <title>New York Times Search</title>
+    <!-- Bootswatch Styling for Improving the Aesthetics -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Style to fix the issue of text extending past panel length -->
+
+</head>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+</body>
+<script>
+    // hkAvVNprCGiJZ293UJPUPpdjSS3Sj0zk
+    var authKey = "hkAvVNprCGiJZ293UJPUPpdjSS3Sj0zk";
+
+// These variables will hold the results we get from the user's inputs via HTML
+var searchTerm = "";
+var numResults = 0;
+var startYear = 0;
+var endYear = 0;
+
+// queryURLBase is the start of our API endpoint. The searchTerm will be appended to this when
+// the user hits the search button
+var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=" +  authKey ;
+
+$.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
+
+        // Log the queryURL
+        console.log(queryURL);
+
+        // Log the resulting object
+        console.log(response);
+
+        // // Transfer content to HTML
+        // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+        // $(".wind").text("Wind Speed: " + response.wind.speed);
+        // $(".humidity").text("Humidity: " + response.main.humidity);
+        // $(".temp").text("Temperature (F) " + response.main.temp);
+
+        // // Converts the temp to Kelvin with the below formula
+        // var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        // $(".tempF").text("Temperature (Kelvin) " + tempF);
+
+        // // Log the data in the console as well
+        // console.log("Wind Speed: " + response.wind.speed);
+        // console.log("Humidity: " + response.main.humidity);
+        // console.log("Temperature (F): " + response.main.temp);
+      });
+</script>
+</html>
